@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block title %} {{ article.title }}  {% endblock title %}
+{% block content %}
+    <div class="container">
+        <h1 class="text-center">{{ article.title }}</h1>
+        <p class="text-center">{{ article.published_date }}
+        {{ article.author }}</p>
+        <img class="img-fluid" src="{{ article.image.url }}" alt="" />
+        <p>{{ article.text }}</p>
+    </div>
+
+
+
+
+{% endblock content %}

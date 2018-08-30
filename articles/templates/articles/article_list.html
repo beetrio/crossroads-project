@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+    <main role="main">
+    <div class="container">
+        <h1 class="text-center pt-3">Knowledgebase Articles</h1>
+        <br />
+        <br />
+        <h2>Latest Articles</h2>
+        <hr>
+        {% for article in articles.all %}
+            <a href="{% url 'article_detail' article.id %}"><h3>{{ article.title }}</h3></a>
+            {{ article.published_date_pretty }}<br />
+            <img class="img-fluid" src="{{ article.image.url }}" alt="" />
+        <p>{{ article.summary }}</p>
+    {% endfor %}
+    </div>
+
+    </main>
+
+
+
+{% endblock content %}
