@@ -18,18 +18,17 @@
 
           <div class="row">
             {% for article in articles.all %}
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" src="{{ article.image.url }}"  />
-                <div class="card-body">
-                    <h5 class="card-title">{{ article.title }}</h5>
-                    <p class="card-text">{{ article.text|truncatechars:255 }}</p>
+                <div class="col-md-4">
+                  <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top" src="{{ article.image.url }}"  />
+                    <div class="card-body">
+                        <h5 class="card-title">{{ article.title }}</h5>
+                        <p class="card-text">{{ article.text|truncatechars:255 }}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
               {% endfor %}
           </div>
-
         </div>
       </div>
 

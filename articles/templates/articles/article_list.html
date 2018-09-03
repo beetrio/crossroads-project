@@ -3,23 +3,31 @@
 {% load staticfiles %}
 
 {% block content %}
-    <main role="main">
-    <div class="container">
+    <main role="main" class="container">
         <h1 class="text-center pt-3">Knowledgebase Articles</h1>
         <br />
         <br />
         <h2>Latest Articles</h2>
         <hr>
         {% for article in articles.all %}
-            <a href="{% url 'article_detail' article.id %}"><h3>{{ article.title }}</h3></a>
-            {{ article.published_date_pretty }}<br />
-            <img class="img-fluid" src="{{ article.image.url }}" alt="" />
-        <p>{{ article.summary }}</p>
-    {% endfor %}
-    </div>
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                <div class="card-body d-flex flex-column align-items-start">
+                  <h3 class="mb-0">
+                    {{ article.title }}
+                  </h3>
+                  <div class="mb-1 text-muted">{{ article.published_date_pretty }}</div>
+                  <p class="card-text mb-auto">{{ article.summary }}</p>
+                  <a href="{% url 'article_detail' article.id %}">Continue reading</a>
+                </div>
+                  <img class="card-img-right flex-auto d-none d-lg-block" src="{{ article.image.url }}" alt="" width="600px" height="400px" />
+              </div>
 
-    </main>
+            </div>
+          </div>
 
-
-
+        </div>
+        {% endfor %}
+    </main><!-- /.container -->
 {% endblock content %}
